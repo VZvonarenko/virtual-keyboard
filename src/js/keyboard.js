@@ -1,39 +1,33 @@
 const keyEnglish = [
   '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
-  'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\',
+  'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Delete',
   'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter',
-  'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift',
-  'Ctrl', 'Alt', 'Space', 'Alt', 'Ctrl',
+  'ShiftLeft', '\\', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '&#9650', 'ShiftRight',
+  'Ctrl', 'Alt', 'Win', 'Space', 'Alt', 'Ctrl', '&#9668', '&#9660', '&#9658',
 ];
 
 const keyShiftEnglish = [
   '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace',
-  'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}', '|',
+  'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{', '}', '|', 'Delete',
   'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ':', '"', 'Enter',
-  'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '< ', '>', '?', 'Shift',
-  'Ctrl', 'Alt', 'Space', 'Alt', 'Ctrl',
+  'ShiftLeft', '\\', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '?', '&#9650', 'ShiftRight',
+  'Ctrl', 'Alt', 'Win', 'Space', 'Alt', 'Ctrl', '&#9668', '&#9660', '&#9658',
 ];
 
 const keyRussian = [
   'ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
-  'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\',
+  'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'Delete',
   'CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter',
-  'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', 'Shift',
-  'Ctrl', 'Alt', 'Space', 'Alt', 'Ctrl',
+  'ShiftLeft', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', '&#9650', 'ShiftRight',
+  'Ctrl', 'Alt', 'Win', 'Space', 'Alt', 'Ctrl', '&#9668', '&#9660', '&#9658',
 ];
 
 const keyShiftRussian = [
   'ё', '!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', 'Backspace',
-  'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '/',
+  'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '/', 'Delete',
   'CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter',
-  'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', ',', 'Shift',
-  'Ctrl', 'Alt', 'Space', 'Alt', 'Ctrl',
-];
-
-const functionalKeys = [
-  'Escape', 'F1', 'F2', 'F3', 'F4', 'F6', 'F7', 'F8',
-  'F9', 'F10', 'F11', 'F12', 'Insert', 'Home', 'PageUp',
-  'PageDown', 'End', 'Delete', 'NumLock',
+  'ShiftLeft', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', ',', '&#9650', 'ShiftRight',
+  'Ctrl', 'Alt', 'Win', 'Space', 'Alt', 'Ctrl', '&#9668', '&#9660', '&#9658',
 ];
 
 let language = [];
@@ -49,7 +43,7 @@ function createFragment() {
   language.forEach((key) => {
     const button = document.createElement('button');
     button.setAttribute('type', 'button');
-    button.classList.add('keyboard_key');
+    button.classList.add('button');
 
     switch (key) {
       case 'Backspace':
@@ -60,8 +54,12 @@ function createFragment() {
         button.classList.add('key_enter');
         button.innerText = 'Enter';
         break;
-      case 'Shift':
-        button.classList.add('key_shift');
+      case 'ShiftLeft':
+        button.classList.add('key_shiftleft');
+        button.innerHTML = 'Shift';
+        break;
+      case 'ShiftRight':
+        button.classList.add('key_shiftright');
         button.innerHTML = 'Shift';
         break;
       case 'Tab':
@@ -76,6 +74,10 @@ function createFragment() {
         button.classList.add('key_space');
         button.innerHTML = ' ';
         break;
+      case 'Win':
+        button.classList.add('key_win');
+        button.innerHTML = 'Win';
+        break;
       case 'Ctrl':
         button.classList.add('key_ctrl');
         button.innerHTML = 'Ctrl';
@@ -84,9 +86,12 @@ function createFragment() {
         button.classList.add('key_alt');
         button.innerHTML = 'Alt';
         break;
+      case 'Delete':
+        button.classList.add('key_delete');
+        button.innerHTML = 'Delete';
+        break;
       default:
         button.innerHTML = key;
-        button.classList.add('button_key');
         break;
     }
     fragment.appendChild(button);
@@ -102,7 +107,9 @@ export default function keyboardInit() {
 
   const textarea = document.createElement('textarea');
   wrapper.append(textarea);
-  textarea.setAttribute('id', 'textarea');
+  textarea.classList.add('textarea');
+  textarea.setAttribute('cols', 100);
+  textarea.setAttribute('rows', 10);
   textarea.setAttribute('autofocus', 'true');
 
   const container = document.createElement('div');
