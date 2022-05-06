@@ -66,3 +66,8 @@ body {
     grid-column-start: 4;
     grid-column-end: 11;
 }
+
+.key_click {
+    background-color: rgb(8, 124, 18);
+    ;
+}
