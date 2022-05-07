@@ -1,16 +1,4 @@
-function toggleCase(letters) {
-  const caps = document.querySelector('.key_capslock');
-
-  if (caps.classList.contains('capslock_on')) {
-    letters.forEach((item) => {
-      item.innerText = item.innerText.toUpperCase();
-    });
-  } else {
-    letters.forEach((item) => {
-      item.innerText = item.innerText.toLowerCase();
-    });
-  }
-}
+import switcher from './switcher.js';
 
 export default function capslock() {
   const letters = document.querySelectorAll('.key_general');
@@ -20,7 +8,7 @@ export default function capslock() {
     caps.classList.toggle('click');
     caps.classList.toggle('capslock_on');
     caps.classList.toggle('key_click');
-    toggleCase(letters);
+    switcher(letters);
     localStorage.caps = caps.className;
   });
 }
