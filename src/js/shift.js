@@ -11,6 +11,7 @@ export default function shift() {
   const keyshift = document.querySelectorAll('.keyshift');
   const buttons = document.querySelectorAll('.key_general');
   const buttonsAll = document.querySelectorAll('.button');
+
   keyshift.forEach((element) => {
     element.addEventListener('mousedown', (event) => {
       if (localStorage.language === 'rus') {
@@ -52,7 +53,9 @@ export default function shift() {
         capslock.classList.add('capslock_on');
         switcher(buttons);
       }
+      element.classList.add('key_click');
     });
+
     element.addEventListener('mouseup', (event) => {
       if (localStorage.language === 'rus') {
         keyRussian.forEach((item, index) => {
@@ -93,6 +96,7 @@ export default function shift() {
         capslock.classList.remove('capslock_on');
         switcher(buttons);
       }
+      element.classList.remove('key_click');
     });
   });
 }
