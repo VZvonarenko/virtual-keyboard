@@ -1,4 +1,4 @@
-import { keyEnglish, keyRussian } from './dictionary.js';
+import { keyEnglish, keyRussian, keyCodes } from './dictionary.js';
 
 let language = [];
 
@@ -10,11 +10,11 @@ if (localStorage.language === 'rus') {
 
 function createFragment() {
   const fragment = document.createDocumentFragment();
-  language.forEach((key) => {
+  language.forEach((key, index) => {
     const button = document.createElement('button');
     button.setAttribute('type', 'button');
     button.classList.add('button');
-
+    button.setAttribute('id', keyCodes[index]);
     switch (key) {
       case 'Backspace':
         button.classList.add('key_backspace');
@@ -25,7 +25,7 @@ function createFragment() {
         button.innerText = 'Enter';
         break;
       case 'ShiftLeft':
-        button.classList.add('key_shiftleft');
+        button.classList.add('key_capslock');
         button.innerHTML = 'Shift';
         break;
       case 'ShiftRight':

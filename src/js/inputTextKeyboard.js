@@ -1,4 +1,4 @@
-import { keyEnglish, keyShiftRussian } from './dictionary.js';
+import { keyEnglish, keyRussian, keyShiftRussian } from './dictionary.js';
 import { bufferText } from './inputTextMouse.js';
 import switcher from './switcher.js';
 import view from './view.js';
@@ -7,7 +7,7 @@ export default function inputTextKeyboard() {
   const textareafield = document.querySelector('.textarea');
   const capslock = document.querySelector('.key_capslock');
   const letters = document.querySelectorAll('.key_generals');
-  const buttons = document.querySelectorAll('.buttons');
+  const buttons = document.querySelectorAll('.button');
   window.addEventListener('keydown', (event) => {
     switch (event.key) {
       case 'Shift':
@@ -41,23 +41,22 @@ export default function inputTextKeyboard() {
         view(bufferText, textareafield);
         break;
       case 'ArrowRight':
-        bufferText.push('➡');
-
+        bufferText.push('&#9658');
         view(bufferText, textareafield);
         break;
 
       case 'ArrowLeft':
-        bufferText.push('⬅');
+        bufferText.push('&#9668');
         view(bufferText, textareafield);
         break;
 
       case 'ArrowUp':
-        bufferText.push('⬆');
+        bufferText.push('&#9650');
         view(bufferText, textareafield);
         break;
 
       case 'ArrowDown':
-        bufferText.push('⬇');
+        bufferText.push('&#9660');
         view(bufferText, textareafield);
         break;
       case 'Control':
@@ -79,14 +78,14 @@ export default function inputTextKeyboard() {
 
       default:
         if (localStorage.language === 'rus') {
-          keyEnglish.forEach((item) => {
+          keyRussian.forEach((item) => {
             if (item === event.key.toLowerCase()) {
-              const index = keyEnglish.indexOf(item);
-              bufferText.push(keyShiftRussian[index]);
+              const index = keyRussian.indexOf(item);
+              bufferText.push(keyRussian[index]);
               buttons[index].classList.add('key_click');
             }
           });
-          if (event.cpde === 'Space') {
+          if (event.code === 'Space') {
             bufferText.push(' ');
           }
         } else {
