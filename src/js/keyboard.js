@@ -25,11 +25,17 @@ function createFragment() {
         button.innerText = 'Enter';
         break;
       case 'ShiftLeft':
-        button.classList.add('key_capslock');
+        button.classList.add(
+          'key_shiftleft',
+          'keyshift',
+        );
         button.innerHTML = 'Shift';
         break;
       case 'ShiftRight':
-        button.classList.add('key_shiftright');
+        button.classList.add(
+          'key_shiftright',
+          'keyshift',
+        );
         button.innerHTML = 'Shift';
         break;
       case 'Tab':
