@@ -4,7 +4,7 @@ export default function changelanguage() {
   window.addEventListener('keydown', (event) => {
     event.preventDefault();
     pressed.add(event.code);
-    if (pressed.has('ShiftLeft') && pressed.has('ControlLeft')) {
+    if (pressed.has('ShiftLeft') && pressed.has('AltLeft')) {
       localStorage.language === 'en'
         ? localStorage.language = 'rus'
         : localStorage.language = 'en';
@@ -16,5 +16,4 @@ export default function changelanguage() {
   document.addEventListener('keyup', (event) => {
     pressed.delete(event.code);
   });
-  // document.location.reload();
 }

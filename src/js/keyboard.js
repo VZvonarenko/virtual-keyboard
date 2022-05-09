@@ -96,7 +96,7 @@ export default function keyboardInit() {
   const description = document.createElement('div');
   wrapper.append(description);
   description.classList.add('description');
-  description.innerHTML = 'Создано для ОС Windows. Переключение языков ShiftLeft + ControlLeft';
+  description.innerHTML = 'Создано для ОС Windows. Переключение языков Shift (Left) + Alt (Left). Ввод с клавиатуры вводится, если язык совпадает в системе и на вирутальной клавиатуре';
 
   container.append(createFragment());
 }
