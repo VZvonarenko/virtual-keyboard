@@ -4,6 +4,7 @@ import inputTextKeyboard from './inputTextKeyboard.js';
 import inputTextMouse from './inputTextMouse.js';
 import pressbutton from './pressbutton.js';
 import shift from './shift.js';
+import changelanguage from './changelanguage.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   keyboardInit();
@@ -12,4 +13,16 @@ window.addEventListener('DOMContentLoaded', () => {
   inputTextMouse();
   pressbutton();
   shift();
+  changelanguage();
 });
+
+/*
+Не работает:
+подсветка нажатий мыши
+DELETE с мышки
+TAB с клавиатуры
+переключение языков сочитанием клавиш
+добавить анимацию нажатия кнопок
+стрелочки с мыши
+
+*/
