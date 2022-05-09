@@ -1,7 +1,6 @@
 import { keyEnglish, keyRussian, keyCodes } from './dictionary.js';
 
 let language = [];
-// console.log(localStorage.language);
 if (localStorage.language === 'rus') {
   language = keyRussian;
 } else {
@@ -96,7 +95,8 @@ export default function keyboardInit() {
   const description = document.createElement('div');
   wrapper.append(description);
   description.classList.add('description');
-  description.innerHTML = 'Создано для ОС Windows. Переключение языков Shift (Left) + Alt (Left). Ввод с клавиатуры вводится, если язык совпадает в системе и на вирутальной клавиатуре';
+  description.innerHTML = 'Создано для ОС Windows. Переключение языков Shift (Left) + Alt (Left). '
+        + '\n Ввод с клавиатуры работает, если язык в системе и совпадает с языком на виртуальной клавиатуре';
 
   container.append(createFragment());
 }

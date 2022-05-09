@@ -1,4 +1,4 @@
-import { keyEnglish, keyRussian, keyShiftRussian } from './dictionary.js';
+import { keyRussian } from './dictionary.js';
 import { bufferText } from './inputTextMouse.js';
 import switcher from './switcher.js';
 import view from './view.js';
@@ -20,10 +20,12 @@ export default function inputTextKeyboard() {
       case 'CapsLock':
         if (event.getModifierState('CapsLock')) {
           capslock.classList.remove('capslock_on');
+          capslock.classList.remove('click');
           switcher(letters);
           break;
         } else {
           capslock.classList.add('capslock_on');
+          capslock.classList.add('click');
           switcher(letters);
           localStorage.capslock = capslock.className;
           break;
@@ -63,14 +65,6 @@ export default function inputTextKeyboard() {
         bufferText.push('&#9660');
         view(bufferText, textareafield);
         break;
-        // case ('Control' || 'Alt'):
-        //     if (localStorage.language === 'en') {
-        //         localStorage.language = 'rus';
-        //     } else {
-        //         localStorage.language = 'en';
-        //     }
-        //     document.location.reload();
-        //     break;
 
       case 'F5':
         break;
@@ -107,7 +101,7 @@ export default function inputTextKeyboard() {
         if (event.getModifierState('CapsLock')) {
           break;
         } else {
-          capslock.classList.remove('capslock_on');
+          capslock.classList.add('capslock_on');
           switcher(letters);
         }
         break;
