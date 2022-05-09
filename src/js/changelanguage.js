@@ -5,9 +5,8 @@ export default function changelanguage() {
     event.preventDefault();
     pressed.add(event.code);
     if (pressed.has('ShiftLeft') && pressed.has('AltLeft')) {
-      localStorage.language === 'en'
-        ? localStorage.language = 'rus'
-        : localStorage.language = 'en';
+      if (localStorage.language === 'en') localStorage.language = 'rus';
+      else localStorage.language = 'en';
       document.location.reload();
       pressed.clear();
     }
